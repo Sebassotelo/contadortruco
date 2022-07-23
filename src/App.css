@@ -156,6 +156,9 @@ span a{
     grid-gap: 10px;
 
   }
+  .app__title {
+    align-self: end;
+  }
   .app__ellos_title{
     grid-column: 1/3;
   }
