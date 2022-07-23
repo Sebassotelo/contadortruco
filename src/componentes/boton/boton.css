@@ -15,7 +15,6 @@
     margin: 0;
     font-size: 18px;
 }
-
 @media (max-width: 900px)  {
     .boton{
         width: 65px;

@@ -166,7 +166,7 @@ const nosReiniciar = () => {
         </div>
       </div>
 
-      <p>Hecho por <span>Sebas Sotelo</span>. 2022</p>
+      <p className='copy'>Hecho por <span><a href="https://portfolio-tan-delta.vercel.app/" target={'_blank'}>Sebas Sotelo</a></span>. 2022</p>
     </div>
   );
 }
