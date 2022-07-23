@@ -1,0 +1,28 @@
+.boton {
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 20px;
+
+}
+
+.boton p{
+    margin: 0;
+    font-size: 18px;
+}
+
+@media (max-width: 900px)  {
+    .boton{
+        width: 65px;
+    }
+
+    .boton p {
+        font-size: 11px;
+        font-weight: 600;
+    }
+}
