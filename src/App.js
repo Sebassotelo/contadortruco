@@ -1,12 +1,47 @@
-import React , { useState } from 'react';
+import React , { useState , eseEffect, useEffect} from 'react';
 import './App.css';
 import Boton from './componentes/boton/boton';
 import Contador from './componentes/contador/contador';
 
 function App() {
 
+const [juego, setJuego] = useState(30);
 const [ellos, setEllos] = useState(0);
 const [nos, setNos] = useState(0);
+const [ganador, setGanador] = useState('');
+const [open, setOpen] = useState(false);
+
+const a15 = () => {
+  setJuego(15)
+}
+
+const a30 = () => {
+  setJuego(30)
+}
+
+
+useEffect (() => {
+  if(nos < juego) {
+    setOpen(false);
+  }
+  if(ellos < juego) {
+    setOpen(false);
+  }
+  
+  if(nos >= juego){
+    setNos(juego);
+    setGanador('NOS');
+    setOpen(true);
+  }
+  if(ellos >= juego){
+    setEllos(juego);
+    setGanador('ELLOS');
+    setOpen(true);
+  }
+
+
+
+})
 
 
 const ronda = () => {
@@ -34,7 +69,7 @@ const realEnvido = () => {
 } 
 
 const faltaEnvido = () => {
-  let falta = 30 - ellos;
+  let falta = juego - ellos;
   setEllos(ellos + falta)
 } 
 
@@ -80,7 +115,7 @@ const nosRealEnvido = () => {
 } 
 
 const nosFaltaEnvido = () => {
-  let falta = 30 - nos;
+  let falta = juego - nos;
   setNos(nos + falta)
 } 
 
@@ -103,18 +138,25 @@ const nosReiniciar = () => {
 
 
   return (
+<div className="body" >
+    <p className='ganador' style={{display: open ? 'block' : 'none'}}>GANO {ganador} </p>
     <div className="app">
-
-        <h1>Contador de Truco</h1>
+      <div className='app__title'>
+      <h1 className='app__h1'>Contador de Truco</h1>
+      
+      <Boton text= 'A 15' func={a15}/>
+      <Boton text= 'A 30' func={a30}/>
+      </div>
+        
         
       <div className='app__container'>
+      <p className='app__p'>Estan jugando a {juego} </p>
         <div className='app__contador nos'>
          <Contador text={nos}/>
         </div>
 
         <div className='app__contador ellos'>
-          <Contador text={ellos}
-          />
+          <Contador text={ellos}/>
         </div>
 
         <div className='app__botones nos'>
@@ -168,6 +210,7 @@ const nosReiniciar = () => {
 
       <p className='copy'>Hecho por <span><a href="https://portfolio-tan-delta.vercel.app/" target={'_blank'}>Sebas Sotelo</a></span>. 2022</p>
     </div>
+  </div>
   );
 }
 
