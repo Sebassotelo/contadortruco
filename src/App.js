@@ -194,6 +194,7 @@ const nosRestar = () => {
     <div className={open? 'ganador__fondo' : ''}></div>
     <div className='ganador' style={{display: open ? 'block' : 'none'}}>
       <h3>GANO {ganador} </h3>
+      <p></p>
       </div>
       
     <div className="app">
