@@ -45,101 +45,157 @@ useEffect (() => {
 
 
 const ronda = () => {
-  setEllos(ellos + 1)
+  if(open === false){
+    setEllos(ellos + 1)
+  }
+  
 } 
 
 const truco = () => {
-  setEllos(ellos + 2)
+  if(open === false){
+    setEllos(ellos + 2)
+  }
+
 } 
 
 const reTruco = () => {
-  setEllos(ellos + 3)
+  if(open === false){
+    setEllos(ellos + 3)
+  }
+
 } 
 
 const trucoCuatro = () => {
-  setEllos(ellos + 4)
+  if(open === false){
+    setEllos(ellos + 4)
+  }
+
 } 
 
 const envido = () => {
-  setEllos(ellos + 2)
+  if(open === false){
+    setEllos(ellos + 2)
+  }
+
 } 
 
 const realEnvido = () => {
-  setEllos(ellos + 3)
+  if(open === false){
+    setEllos(ellos + 3)
+  }
+
 } 
 
 const faltaEnvido = () => {
-  let falta = juego - ellos;
-  setEllos(ellos + falta)
+  if(open === false){
+    let falta = juego - ellos;
+    setEllos(ellos + falta)
+  }
+
 } 
 
 const flor = () => {
-  setEllos(ellos + 3)
+  if(open=== false){
+    setEllos(ellos + 3)
+
+  }
 } 
 
 const restar = () => {
-  if(ellos > 0){
-    setEllos(ellos - 1)
-  }
+  if(open === false){
+      if(ellos > 0){
+        setEllos(ellos - 1)
+      }
+ }
+
   
 } 
 
 const reiniciar = () => {
   let reinicio = ellos;
   setEllos(ellos - reinicio)
+  let reinicio2 = nos;
+  setNos(nos - reinicio2)
 } 
 
 
 const nosRonda = () => {
-  setNos(nos + 1)
+  if(open === false) {
+    setNos(nos + 1)
+  }
+
 } 
 
 const nosTruco = () => {
-  setNos(nos + 2)
+  if(open === false) {
+    setNos(nos + 2)
+  }
+ 
 } 
 
 const nosReTruco = () => {
-  setNos(nos + 3)
+  if(open === false) {
+    setNos(nos + 3)
+  }
+ 
 } 
 
 const nosTrucoCuatro = () => {
-  setNos(nos + 4)
+  if(open === false) {
+    setNos(nos + 4)
+  }
+ 
 } 
 
 const nosEnvido = () => {
-  setNos(nos + 2)
+  if(open === false) {
+    setNos(nos + 2)
+  }
+  
 } 
 
 const nosRealEnvido = () => {
-  setNos(nos + 3)
+  if(open === false) {
+    setNos(nos + 3)
+  }
+ 
 } 
 
 const nosFaltaEnvido = () => {
-  let falta = juego - nos;
-  setNos(nos + falta)
+  if(open === false) {
+    let falta = juego - nos;
+    setNos(nos + falta)
+  }
+
 } 
 
 const nosFlor = () => {
-  setNos(nos + 3)
+  if(open === false) {
+    setNos(nos + 3)
+  }
+
 } 
 
 const nosRestar = () => {
-  if(nos > 0){
-    setNos(nos - 1)
+  if(open === false) {
+      if(nos > 0){
+        setNos(nos - 1)
+      }
   }
+
 } 
 
-const nosReiniciar = () => {
 
-  let reinicio = nos;
-  setNos(nos - reinicio)
-} 
 
 
 
   return (
 <div className="body" >
-    <p className='ganador' style={{display: open ? 'block' : 'none'}}>GANO {ganador} </p>
+    <div className={open? 'ganador__fondo' : ''}></div>
+    <div className='ganador' style={{display: open ? 'block' : 'none'}}>
+      <h3>GANO {ganador} </h3>
+      </div>
+      
     <div className="app">
       <div className='app__title'>
       <h1 className='app__h1'>Contador de Truco</h1>
@@ -154,6 +210,8 @@ const nosReiniciar = () => {
         <div className='app__contador nos'>
          <Contador text={nos}/>
         </div>
+        
+        
 
         <div className='app__contador ellos'>
           <Contador text={ellos}/>
@@ -177,9 +235,10 @@ const nosReiniciar = () => {
           
           <Boton text= 'Flor' func={nosFlor}/>
 
+          <div className='restar'>
           <Boton text= 'Restar 1' func={nosRestar}/>
+            </div>
 
-          <Boton text= 'Reiniciar' func={nosReiniciar}/> 
         </div>
 
         <div className='app__botones ellos'>
@@ -202,10 +261,14 @@ const nosReiniciar = () => {
           
           <Boton text= 'Flor' func={flor}/>
 
-          <Boton text= 'Restar 1' func={restar}/>
+          <div className='restar'>
+            <Boton text= 'Restar 1' func={restar}/>
+            </div>
 
-          <Boton text= 'Reiniciar' func={reiniciar}/> 
         </div>
+          <div className={open? 'reinicio2' : 'reinicio'}>
+            <Boton text= 'Reiniciar' func={reiniciar}/> 
+          </div>
       </div>
 
       <p className='copy'>Hecho por <span><a href="https://portfolio-tan-delta.vercel.app/" target={'_blank'}>Sebas Sotelo</a></span>. 2022</p>

@@ -5,13 +5,19 @@
 .contador p{
     font-size: 100px;
     margin: 0;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 @media ( min-height: 500px) and (max-height: 800px) {
     .contador p{
         font-size: 60px;
         margin: 0;
-        color: white;
+    }
+}
+
+@media (max-width: 900px) {
+    .contador p{
+        font-size: 70px;
+        margin: 0;
     }
 }
