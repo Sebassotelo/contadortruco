@@ -146,7 +146,7 @@ span a{
 @media ( min-height: 500px) and (max-height: 800px){
 
                 .app {
-                  grid-template-rows: 100px 1fr 50px;
+                  grid-template-rows: 100px 1fr 40px;
                 }
 
                 .app__container{
